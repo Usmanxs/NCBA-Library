@@ -33,8 +33,8 @@ export default function Root() {
           
                  
              
-              <A href="/Login"></A>
-         
+              <A href="/"></A>
+              
             <Routes>
             <FileRoutes />
     

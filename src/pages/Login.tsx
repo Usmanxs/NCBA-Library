@@ -1,7 +1,8 @@
 import { Component,createSignal } from "solid-js"
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../auth/firebase";
+import { auth } from "../firebase";
 import { useNavigate } from "solid-start";
+
 
 const Login: Component = () => {
   const [error,setError] = createSignal(false);
@@ -14,7 +15,8 @@ const Login: Component = () => {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        console.log(user);
+         navigate("/admin")
+         console.log (user)
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -35,7 +37,8 @@ const Login: Component = () => {
             </div>
             <div class="pb-5">
               <label for="email" class="text-left block text-fuchsia-700">Email</label>
-              <input type="email" class="block w-full p-2 rounded shadow bg-gray-100 focus:ring-2 focus:ring-fuchsia-300 focus:border-transparent focus:outline-none" placeholder="Enter Email" value={email()} onInput={e=>setEmail(e.target.value)} required/>
+              <input type="email" class="block w-full p-2 rounded shadow bg-gray-100 focus:ring-2 focus:ring-fuchsia-300 focus:border-transparent focus:outline-none" 
+              placeholder="Enter Email" value={email()} onInput={e=>setEmail(e.target.value)} required/>
             </div>
             <div class="pb-5">
               <label for="password" class="text-left block text-fuchsia-700">Password</label>

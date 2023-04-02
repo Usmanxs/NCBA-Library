@@ -1,18 +1,16 @@
-// import { Component, createSignal } from 'solid-js';
-// import Sidebar from '../components/sidebar';
-// import Header from '../components/header';
+import { Component} from "solid-js"
+import { A } from "@solidjs/router"
 
 
-// const Admin: Component = () => {
-//   const [menuOpen, setMenuOpen] = createSignal(false);
+const Admin = ()=>{
+ return(
+    <div>
+ 
+      
 
-//   return (
-//     <div class="flex h-screen bg-gray-100 font-roboto">
-//      <Sidebar/>
-    
-//       </div>
-   
-//   );
-// };
 
-// export default Admin;
+  
+    </div>
+ )
+}
+export default Admin
