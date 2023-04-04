@@ -1,7 +1,7 @@
 import { Component,createSignal } from "solid-js"
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../firebase";
-import { useNavigate } from "solid-start";
+import { auth } from "../../firebase/firebase.config";
+import { useNavigate } from "solid-app-router";
 
 
 const Login: Component = () => {
@@ -9,13 +9,14 @@ const Login: Component = () => {
   const [email,setEmail] = createSignal("");
   const [password,setPassword] = createSignal("");
   const navigate = useNavigate();
+   
   const handleLogin = (e: Event) => {
     e.preventDefault();
     signInWithEmailAndPassword(auth, email(), password())
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-         navigate("/admin")
+         navigate("/Dashboard")
          console.log (user)
       })
       .catch((error) => {
@@ -31,7 +32,7 @@ const Login: Component = () => {
       <div class="min-h-screen  flex justify-center h-full items-center bg-fuchsia-800 ">
         <img src="./assets/logo.png" alt="admin" class="w-20 absolute top-20  justify-center " />
         <div class="w-96 p-2 bg-white rounded-md  static" >
-          <form onSubmit={handleLogin} class="my-5">
+          <form  onSubmit={handleLogin} class="my-5">
             <div class="pb-5 text-xl text-center text-fuchsia-700 font-bold ">
               <h1>SIGN IN</h1>
             </div>
