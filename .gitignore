@@ -3,9 +3,7 @@ dist
 .solid
 .output
 .vercel
-.netlify
-netlify
-
+ 
 # dependencies
 /node_modules
 
